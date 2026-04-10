@@ -7,7 +7,7 @@ Maria Eduarda Pereira  Ribeiro RA: 24224683-2
 
 > Marketplace local de serviços que conecta trabalhadores informais a clientes da região.
 
-**ODS 10 — Redução das Desigualdades** | AEP — Programação Orientada a Objetos
+**ODS 10 — Redução das Desigualdades**
 
 ---
 
@@ -53,26 +53,6 @@ javac *.java
 java ui.Main
 ```
 
-## Conceitos de POO aplicados
-
-| Conceito | Onde |
-|---|---|
-| Herança | `models.Prestador` e `models.Cliente` herdam de `models.Usuario` |
-| Polimorfismo | `exibirPerfil()` sobrescrito em cada subclasse |
-| Encapsulamento | Atributos privados com getters/setters |
-| Abstração | Classe abstrata `models.Usuario` |
-| Enum | `models.Status` para estados da solicitação |
-
-## Clean Code — funções analisadas
-
-### `cadastrarSolicitacao()`
-Responsabilidade única: cria o objeto, gera protocolo e registra na lista. Nome descritivo e retorno claro.
-
-### `listarServicos()`
-Separa lógica (iteração) de exibição (delegada a `services.Servico.exibirDetalhes()`). Método pequeno e reutilizável.
-
-### `atualizarStatus()`
-Usa enum para evitar strings mágicas. Centraliza validação, garantindo consistência em todo o sistema.
 
 ---
 
