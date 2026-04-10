@@ -43,7 +43,7 @@ src/
 
 ```bash
 # 1. Clone o repositório
-git clone https://github.com/seu-usuario/conecta-local.git
+git clone https://github.com/GnoattoGabriel/AEP-5S-p1
 cd conecta-local/src
 
 # 2. Compile todos os arquivos
