@@ -1,5 +1,10 @@
 # Conecta Local 🤝
 
+Desenvolvido por: 
+Sophia Machado Silva RA:24087451-2 |
+Gabriel de Oliveira Gnoatto RA:23298801-2 |
+Maria Eduarda Pereira  Ribeiro RA: 24224683-2
+
 > Marketplace local de serviços que conecta trabalhadores informais a clientes da região.
 
 **ODS 10 — Redução das Desigualdades** | AEP — Programação Orientada a Objetos
