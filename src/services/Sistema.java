@@ -1,3 +1,9 @@
+package services;
+
+import models.Cliente;
+import models.Status;
+import models.Usuario;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -7,6 +13,7 @@ public class Sistema {
     private List<Usuario> usuarios;
     private List<Servico> servicos;
     private List<Solicitacao> solicitacoes;
+    private int proximoIdCliente = 1;
 
     public Sistema() {
         this.usuarios = new ArrayList<>();
@@ -14,23 +21,26 @@ public class Sistema {
         this.solicitacoes = new ArrayList<>();
     }
 
+    public int gerarIdCliente() {
+        return proximoIdCliente++;
+    }
+
     public void cadastrarUsuario(Usuario usuario) {
         usuarios.add(usuario);
-        System.out.println("Usuario cadastrado: " + usuario.getNome());
+        System.out.println("models.Usuario cadastrado: " + usuario.getNome());
     }
 
     public void cadastrarServico(Servico servico) {
         servicos.add(servico);
-        System.out.println("Servico cadastrado: " + servico.getNome());
+        System.out.println("services.Servico cadastrado: " + servico.getNome());
     }
 
-    /** clean code: responsabilidade unica, nome descritivo, extracao de metodo */
     public Solicitacao cadastrarSolicitacao(Cliente cliente, Servico servico, String descricao) {
         String protocolo = gerarProtocolo();
         Solicitacao solicitacao = new Solicitacao(protocolo, cliente, servico, descricao);
         solicitacoes.add(solicitacao);
         cliente.incrementarPedidos();
-        System.out.println("\nSolicitacao criada! Protocolo: " + protocolo);
+        System.out.println("\nservices.Solicitacao criada! Protocolo: " + protocolo);
         return solicitacao;
     }
 
@@ -43,7 +53,6 @@ public class Sistema {
         }
     }
 
-    /** clean code: separacao de logica e exibicao, metodo pequeno e reutilizavel */
     public void listarServicos() {
         if (servicos.isEmpty()) {
             System.out.println("Nenhum servico cadastrado.");
@@ -69,7 +78,6 @@ public class Sistema {
         }
     }
 
-    /** clean code: validacao centralizada, uso de enum, nome descritivo */
     public void atualizarStatus(String protocolo, Status novoStatus) {
         Solicitacao solicitacao = buscarPorProtocolo(protocolo);
         if (solicitacao != null) {
@@ -94,4 +102,5 @@ public class Sistema {
 
     public List<Servico> getServicos() { return servicos; }
     public List<Solicitacao> getSolicitacoes() { return solicitacoes; }
+
 }

@@ -1,3 +1,8 @@
+package services;
+
+import models.Cliente;
+import models.Status;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -23,19 +28,18 @@ public class Solicitacao {
     public String getProtocolo() { return protocolo; }
     public Status getStatus() { return status; }
 
-    /** clean code: uso de enum garante que so valores validos sejam aceitos */
     public void atualizarStatus(Status novoStatus) {
         this.status = novoStatus;
-        System.out.println("Status atualizado para: " + novoStatus);
+        System.out.println("models.Status atualizado para: " + novoStatus);
     }
 
     public void exibirDetalhes() {
         System.out.println("--------------------------------");
         System.out.println("Protocolo : " + protocolo);
-        System.out.println("Cliente   : " + cliente.getNome());
-        System.out.println("Servico   : " + servico.getNome());
+        System.out.println("models.Cliente   : " + cliente.getNome());
+        System.out.println("services.Servico   : " + servico.getNome());
         System.out.println("Descricao : " + descricao);
-        System.out.println("Status    : " + status);
+        System.out.println("models.Status    : " + status);
         System.out.println("Criado em : " + dataCriacao);
         System.out.println("--------------------------------");
     }

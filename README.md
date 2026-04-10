@@ -22,14 +22,14 @@ Muitos trabalhadores informais possuem habilidades mas não têm acesso a meios 
 
 ```
 src/
-├── Main.java         # Ponto de entrada e menu interativo
-├── Sistema.java      # Gerenciamento central (CRUD + protocolo)
-├── Usuario.java      # Classe abstrata base
-├── Prestador.java    # Herda Usuario — dados profissionais
-├── Cliente.java      # Herda Usuario — contratação de serviços
-├── Servico.java      # Serviço oferecido por um prestador
-├── Solicitacao.java  # Pedido com ciclo de vida completo
-└── Status.java       # Enum de estados da solicitação
+├── ui.Main.java         # Ponto de entrada e menu interativo
+├── services.Sistema.java      # Gerenciamento central (CRUD + protocolo)
+├── models.Usuario.java      # Classe abstrata base
+├── models.Prestador.java    # Herda models.Usuario — dados profissionais
+├── models.Cliente.java      # Herda models.Usuario — contratação de serviços
+├── services.Servico.java      # Serviço oferecido por um prestador
+├── services.Solicitacao.java  # Pedido com ciclo de vida completo
+└── models.Status.java       # Enum de estados da solicitação
 ```
 
 ## Como rodar
@@ -45,18 +45,18 @@ cd conecta-local/src
 javac *.java
 
 # 3. Execute o sistema
-java Main
+java ui.Main
 ```
 
 ## Conceitos de POO aplicados
 
 | Conceito | Onde |
 |---|---|
-| Herança | `Prestador` e `Cliente` herdam de `Usuario` |
+| Herança | `models.Prestador` e `models.Cliente` herdam de `models.Usuario` |
 | Polimorfismo | `exibirPerfil()` sobrescrito em cada subclasse |
 | Encapsulamento | Atributos privados com getters/setters |
-| Abstração | Classe abstrata `Usuario` |
-| Enum | `Status` para estados da solicitação |
+| Abstração | Classe abstrata `models.Usuario` |
+| Enum | `models.Status` para estados da solicitação |
 
 ## Clean Code — funções analisadas
 
@@ -64,7 +64,7 @@ java Main
 Responsabilidade única: cria o objeto, gera protocolo e registra na lista. Nome descritivo e retorno claro.
 
 ### `listarServicos()`
-Separa lógica (iteração) de exibição (delegada a `Servico.exibirDetalhes()`). Método pequeno e reutilizável.
+Separa lógica (iteração) de exibição (delegada a `services.Servico.exibirDetalhes()`). Método pequeno e reutilizável.
 
 ### `atualizarStatus()`
 Usa enum para evitar strings mágicas. Centraliza validação, garantindo consistência em todo o sistema.

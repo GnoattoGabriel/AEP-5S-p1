@@ -1,3 +1,5 @@
+package models;
+
 public class Prestador extends Usuario {
 
     private String categoria;
@@ -24,7 +26,7 @@ public class Prestador extends Usuario {
 
     @Override
     public void exibirPerfil() {
-        System.out.println("=== Prestador ===");
+        System.out.println("=== models.Prestador ===");
         System.out.println("Nome     : " + getNome());
         System.out.println("Categoria: " + categoria);
         System.out.println("Descricao: " + descricao);

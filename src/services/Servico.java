@@ -1,3 +1,7 @@
+package services;
+
+import models.Prestador;
+
 public class Servico {
 
     private int id;
@@ -23,7 +27,7 @@ public class Servico {
     public void exibirDetalhes() {
         System.out.println("  [" + id + "] " + nome
                 + " - R$ " + String.format("%.2f", preco)
-                + " | Prestador: " + prestador.getNome()
+                + " | models.Prestador: " + prestador.getNome()
                 + " (" + prestador.getCategoria() + ")");
     }
 }

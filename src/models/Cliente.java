@@ -1,3 +1,5 @@
+package models;
+
 public class Cliente extends Usuario {
 
     private String endereco;
@@ -17,7 +19,7 @@ public class Cliente extends Usuario {
 
     @Override
     public void exibirPerfil() {
-        System.out.println("=== Cliente ===");
+        System.out.println("=== models.Cliente ===");
         System.out.println("Nome    : " + getNome());
         System.out.println("Endereco: " + endereco);
         System.out.println("Pedidos : " + totalPedidos);

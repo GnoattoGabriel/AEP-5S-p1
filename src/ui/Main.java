@@ -1,3 +1,12 @@
+package ui;
+
+import models.Cliente;
+import models.Prestador;
+import services.Servico;
+import services.Sistema;
+import models.Status;
+
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -7,10 +16,10 @@ public class Main {
 
     public static void main(String[] args) {
         popularDadosIniciais();
-        executarMenu();
+        menu();
     }
 
-    private static void executarMenu() {
+    private static void menu() {
         boolean rodando = true;
         while (rodando) {
             exibirMenu();
@@ -66,7 +75,7 @@ public class Main {
         String descricao = scanner.nextLine().trim();
 
         Cliente cliente = new Cliente(
-                (int) (Math.random() * 9000 + 1000),
+                sistema.gerarIdCliente(),
                 nomeCliente, emailCliente, "", ""
         );
 
@@ -121,7 +130,7 @@ public class Main {
         return null;
     }
 
-    private static void popularDadosIniciais() {
+    private static void cadastrarPrestadoresIniciais(){
         Prestador maria = new Prestador(1, "Maria Silva", "maria@email.com", "(44) 99999-1111",
                 "Diarista", "Limpeza residencial e comercial");
         Prestador joao = new Prestador(2, "Joao Costa", "joao@email.com", "(44) 99999-2222",
@@ -138,5 +147,12 @@ public class Main {
         sistema.cadastrarServico(new Servico(3, "Reforma de banheiro", "Troca de revestimento e hidraulica", 1200.00, joao));
         sistema.cadastrarServico(new Servico(4, "Pequenos reparos", "Consertos gerais em alvenaria", 250.00, joao));
         sistema.cadastrarServico(new Servico(5, "Manicure + pedicure", "Atendimento completo em domicilio", 70.00, ana));
+
+    }
+
+    private static void popularDadosIniciais() {
+
+        cadastrarPrestadoresIniciais();
+
     }
 }
